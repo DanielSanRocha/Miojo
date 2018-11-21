@@ -1,0 +1,2 @@
+from bezout import bezout
+from minimizeCoefficientsBezout import minimizeCoefficientsBezout
