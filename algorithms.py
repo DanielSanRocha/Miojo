@@ -31,7 +31,7 @@ def bezout(a, b):
     return {'coeff0': s[1], 'coeff1': s[0], 'gcd': d[0]} if swap else {'coeff0': s[0], 'coeff1': s[1], 'gcd': d[0]}
 
 
-#Testes de unidade para esse modulo
+#Testes de unidade para este modulo
 import unittest
 
 class TestBezout(unittest.TestCase):
