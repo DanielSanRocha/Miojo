@@ -35,8 +35,12 @@ def bezout(a, b):
 #um objeto da forma
 # {'coeff0': x, 'coeff1': y} com x,y inteiros saisfazendo:
 # a*x + b*y = c e tal que max{|a*x|,|b*y|} e o menor possivel, se possivel.
-# Caso não seja possivel expressar c desta forma esta funcao retorna False.
+# Caso não seja possivel expressar c desta forma ou
+# a input nao satisfaca a condicao requerida esta funcao retorna False.
 def minimizeCoefficientsBezout(a, b, c):
+
+    if (a <= 0 or b <= 0 or c<= 0 or c >= a or c>= b):
+        return False
 
     bezoutResult = bezout(a,b)
     gcd = bezoutResult['gcd']
@@ -99,6 +103,14 @@ class TestMinimizeCoefficients(unittest.TestCase):
         self.assertEqual(minimizeCoefficientsBezout(5,7,3), {'coeff0': 2, 'coeff1': -1})
     def test_case_7_5_3(self):
         self.assertEqual(minimizeCoefficientsBezout(7,5,3), {'coeff0': -1, 'coeff1': 2})
+    def test_case_7_5_9(self):
+        self.assertEqual(minimizeCoefficientsBezout(7,5,9), False)
+    def test_case_negative_7_5_3(self):
+        self.assertEqual(minimizeCoefficientsBezout(-7,5,3), False)
+    def test_case_7_negative_5_3(self):
+        self.assertEqual(minimizeCoefficientsBezout(7,-5,3), False)
+    def test_case_7_5_negative_3(self):
+        self.assertEqual(minimizeCoefficientsBezout(7,5,-3), False)
 
 
 if __name__ == "__main__":
