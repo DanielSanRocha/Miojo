@@ -1,2 +1,3 @@
 from bezout import bezout
 from minimizeCoefficientsBezout import minimizeCoefficientsBezout
+from AlgorithmException import ImpossibilityAlgorithmException, InputAlgorithmException
