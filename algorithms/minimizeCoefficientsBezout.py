@@ -1,4 +1,5 @@
 from bezout import bezout
+from AlgorithmException import InputAlgorithmException, ImpossibilityAlgorithmException
 
 # Dado tres inteiros (a,b,c) positivos com c < a e c < b, esta funcao retorna
 #um objeto da forma
@@ -9,12 +10,14 @@ from bezout import bezout
 def minimizeCoefficientsBezout(a, b, c):
 
    if (a <= 0 or b <= 0 or c<= 0 or c >= a or c>= b):
+       raise InputAlgorithmException("minimizeCoefficientsBezout Exception: As inputs nao sao validas!")
        return False
 
    bezoutResult = bezout(a,b)
    gcd = bezoutResult['gcd']
 
    if (c % gcd != 0):
+       raise ImpossibilityAlgorithmException("minimizeCoefficientsBezout Exception: 'c' nao e divisivel pelo mdc de 'a' e 'b'!")
        return False
 
    coeff0 = bezoutResult['coeff0'] * (c // gcd)

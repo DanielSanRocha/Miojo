@@ -2,6 +2,7 @@
 import unittest
 from bezout import bezout
 from minimizeCoefficientsBezout import minimizeCoefficientsBezout
+from AlgorithmException import AlgorithmException, InputAlgorithmException, ImpossibilityAlgorithmException
 
 class TestBezout(unittest.TestCase):
 
@@ -29,19 +30,19 @@ class TestMinimizeCoefficients(unittest.TestCase):
     def test_case_3_10_2(self):
         self.assertEqual(minimizeCoefficientsBezout(3,10,2), {'coeff0': 4, 'coeff1': -1})
     def test_case_326_1256(self):
-        self.assertEqual(minimizeCoefficientsBezout(326,1256,1), False)
+        self.assertRaises(ImpossibilityAlgorithmException, minimizeCoefficientsBezout,326,1256,1)
     def test_case_5_7_3(self):
         self.assertEqual(minimizeCoefficientsBezout(5,7,3), {'coeff0': 2, 'coeff1': -1})
     def test_case_7_5_3(self):
         self.assertEqual(minimizeCoefficientsBezout(7,5,3), {'coeff0': -1, 'coeff1': 2})
     def test_case_7_5_9(self):
-        self.assertEqual(minimizeCoefficientsBezout(7,5,9), False)
+        self.assertRaises(InputAlgorithmException, minimizeCoefficientsBezout,7,5,9)
     def test_case_negative_7_5_3(self):
-        self.assertEqual(minimizeCoefficientsBezout(-7,5,3), False)
+        self.assertRaises(InputAlgorithmException, minimizeCoefficientsBezout,-7,5,3)
     def test_case_7_negative_5_3(self):
-        self.assertEqual(minimizeCoefficientsBezout(7,-5,3), False)
+        self.assertRaises(InputAlgorithmException, minimizeCoefficientsBezout,7,-5,3)
     def test_case_7_5_negative_3(self):
-        self.assertEqual(minimizeCoefficientsBezout(7,5,-3), False)
+        self.assertRaises(InputAlgorithmException, minimizeCoefficientsBezout,7,5,-3)
 
 
 if __name__ == "__main__":
