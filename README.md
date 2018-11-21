@@ -32,3 +32,10 @@
     $ python3 miojo.py <a> <b> <c>
 
    onde a e b são as durações de ambas as ampulhetas e c é o tempo necessário para o cozimento do miojo. Caso a input seja valida e o problma solúvel o sistema devera imprimir o tempo mínimo em minutos que joão necessitara usar para cozer o miojo.
+
+## Testes de Unidade
+  Para executar os testes de unidade do módulo algorithms basta executar o módulo com o comando
+
+    $ python3 algorithms
+
+  não se esqueça de possuir a biblioteca unittests instalada no seu computador para tanto.
